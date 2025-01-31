@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.sql.SQLOutput;
 
 public class Client {
   public static final int TCP_PORT = 1238;
@@ -41,10 +42,11 @@ public class Client {
   }
 
   public void send(char operation, double x, double y) {
-    this.writer.println(operation-x-y);
+    this.writer.println(operation + "-" + x + "-" + y);
   }
 
-  public void receive() {
-
+  public void receive() throws IOException {
+    double result = Double.parseDouble(this.reader.readLine());
+    System.out.println("The result of the arithmetic operation is: " + result);
   }
 }

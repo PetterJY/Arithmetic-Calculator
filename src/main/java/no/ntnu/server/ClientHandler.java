@@ -31,15 +31,21 @@ public class ClientHandler extends Thread {
 
   private double receive() throws IOException {
     String message = this.reader.readLine();
-    return Double.parseDouble(message);
+
+    String[] parts = message.split("-");
+
+    double result =
+        arithmeticOperation(parts[0], Double.parseDouble(parts[1]), Double.parseDouble(parts[2]));
+
+    return result;
   }
 
-  public double artithmeticOperation(char operation, double x, double y) {
+  public double arithmeticOperation(String operation, double x, double y) {
     return switch (operation) {
-      case 'A' -> x + y;
-      case 'S' -> x - y;
-      case 'M' -> x * y;
-      case 'D' -> x / y;
+      case "A" -> x + y;
+      case "S" -> x - y;
+      case "M" -> x * y;
+      case "D" -> x / y;
       default -> 0;
     };
   }
