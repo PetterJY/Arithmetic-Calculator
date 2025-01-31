@@ -34,11 +34,13 @@ public class ClientHandler extends Thread {
   }
 
   public double arithmeticOperation(String operation, double x, double y) {
+
     try {
-      Thread.sleep(1000);
+        Thread.sleep(100);
     } catch (InterruptedException e) {
-      e.printStackTrace();
+      System.out.println("Failed to sleep: " + e.getMessage());
     }
+
     return switch (operation) {
       case "A" -> x + y;
       case "S" -> x - y;
