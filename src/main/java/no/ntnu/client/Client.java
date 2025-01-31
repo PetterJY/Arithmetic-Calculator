@@ -26,16 +26,26 @@ public class Client {
   }
 
   public void establishConnection() {
-    try {
-      this.socket = new Socket("localhost", TCP_PORT);
-    } catch (IOException e) {
-      System.out.println("Failed to connect to the server: " + e.getMessage());
-    } try {
-      this.reader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-      this.writer = new PrintWriter(this.socket.getOutputStream(), true);
-    } catch (IOException e) {
-      System.out.println("Failed to create Writer and Reader: " + e.getMessage());
-      throw new IllegalArgumentException("Could not create writer and reader");
+    if (!running) {
+      try {
+        this.socket = new Socket("localhost", TCP_PORT);
+      } catch (IOException e) {
+        System.out.println("Failed to connect to the server: " + e.getMessage());
+      } try {
+        this.reader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+        this.writer = new PrintWriter(this.socket.getOutputStream(), true);
+      } catch (IOException e) {
+        System.out.println("Failed to create Writer and Reader: " + e.getMessage());
+        throw new IllegalArgumentException("Could not create writer and reader");
+      }
     }
+  }
+
+  public void send() {
+
+  }
+
+  public void receive() {
+
   }
 }
