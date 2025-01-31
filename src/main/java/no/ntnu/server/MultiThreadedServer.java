@@ -1,4 +1,4 @@
-package no.ntnu.servers;
+package no.ntnu.server;
 
 public class MultiThreadedServer {
 }
