@@ -14,4 +14,14 @@ public class ClientHandler {
   public void start() {
     
   }
+
+  public double artithmeticOperation(char operation, double x, double y) {
+    return switch (operation) {
+      case 'A' -> x + y;
+      case 'S' -> x - y;
+      case 'M' -> x * y;
+      case 'D' -> x / y;
+      default -> 0;
+    };
+  }
 }
