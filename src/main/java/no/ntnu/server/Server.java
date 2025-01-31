@@ -13,7 +13,7 @@ public class Server {
 	}
 
 	public void run() {
-		this.clientHandler.start();
+		this.clientHandler.run();
 	}
 
 	public Server() {

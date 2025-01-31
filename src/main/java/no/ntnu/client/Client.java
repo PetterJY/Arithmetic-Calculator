@@ -10,7 +10,6 @@ public class Client {
   public static final int TCP_PORT = 1238;
 
   private Socket socket;
-
   private BufferedReader reader;
   private PrintWriter writer;
 
@@ -41,8 +40,8 @@ public class Client {
     }
   }
 
-  public void send() {
-
+  public void send(char operation, double x, double y) {
+    this.writer.println(operation-x-y);
   }
 
   public void receive() {
