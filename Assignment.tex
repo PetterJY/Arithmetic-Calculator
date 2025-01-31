@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\begin{document}
+
+\title{Assignment 1: Client-Server Arithmetic Calculator Performance Analysis}
+\author{}
+\date{}
+\maketitle
+
+\section{Objective}
+The main goal of this assignment is to understand the difference in performance between multiple threads as compared to a single-threaded server by implementing a client-server arithmetic calculator in Java. The objective is to analyze why multithreaded servers are more efficient when handling multiple client requests simultaneously.
+
+\section{Task}
+The client will send two numbers and an operator to the server by taking input from the end user. The server will then perform the arithmetic operation and return the result. 
+
+For example:
+\begin{itemize}
+    \item Client sends two numbers: 50 and 20
+    \item Operator: A (Addition)
+    \item Server computes: $50 + 20 = 70$
+    \item Client displays the result: 70
+\end{itemize}
+
+The server code should support the following operations using a switch-case structure:
+\begin{itemize}
+    \item A: Addition ($+$)
+    \item S: Subtraction ($-$)
+    \item M: Multiplication ($\times$)
+    \item D: Division ($\div$)
+\end{itemize}
+
+Multiple clients should send requests simultaneously for addition, subtraction, multiplication, division, and modulus operations. The server should compute and return the results accordingly.
+
+\section{Performance Analysis}
+You will test the performance difference between:
+\begin{enumerate}
+    \item A single-threaded server
+    \item A multithreaded server
+\end{enumerate}
+
+You should execute at least ten simultaneous client requests and measure the time taken to process all the threads. Since a single-threaded server processes one request at a time, subsequent requests will only begin execution after the previous one finishes. In contrast, a multithreaded server will handle multiple requests concurrently.
+
+The performance difference will be observed as the ``time delay'' in processing ten simultaneous client requests.
+
+\textbf{Rule of Thumb:} The time taken by a single-threaded server to process ten simultaneous client requests is expected to be more than that of a multithreaded server.
+
+\section{Expected Output}
+\textbf{Time taken to process ten threads (sec): ?? seconds}
+
+\section{Submission Guidelines}
+This assignment will be done in groups of two. Groups will be of your choice.
+
+Each group must submit:
+\begin{enumerate}
+    \item The code for both single-threaded and multithreaded client-server implementations.
+    \item A report explaining the difference in performance between single-threaded and multithreaded execution when handling multiple client requests.
+    \item A video demonstration of the application code running, showing the observed performance differences.
+\end{enumerate}
+
+\section{Additional Notes}
+\begin{itemize}
+    \item Feel free to experiment with more simultaneous client requests to further analyze performance differences.
+    \item You may enhance the code, but it is not mandatory.
+    \item Use your prior knowledge of client-server socket programming to implement the assignment.
+\end{itemize}
+
+\end{document}
