@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\begin{document}
+
+\section{\textbf{Introduction}}
+
+This assignment aims to compare the performance of single-threaded and multi-threaded servers in handling multiple simultaneous client requests. By implementing an arithmetic calculator application, we measure the time taken by each server type to process 10+ concurrent requests, demonstrating the efficiency of multi-threading. 
+
+\section{\textbf{Problem Statement}}
+
+The goal of this assignment is to design and implement a client-server arithmetic calculator application using Java socket programming, where the server performs operations (addition, subtraction, multiplication, or division) based on client inputs and returns the result. The primary focus is to compare the performance of a single-threaded server and a multi-threaded server in handling multiple simultaneous client requests. A single-threaded server processes requests sequentially, leading to increased response times under high concurrency, as each client must wait for the previous request to complete. In contrast, a multi-threaded server creates a new thread for each client, enabling concurrent processing and significantly improving scalability and responsiveness. By testing both server types with a minimum of 10 simultaneous client requests, this assignment demonstrates the importance of multi-threading in building efficient and scalable server applications.
+
+\section{\textbf{Testing and Results}}
+
+\subsection{\textbf{Testing Methodology}}
+
+We tested two different cases. One case with and one case without a delay added onto each operation. This is to simulate larger computations for each thread.This result is a lot more indicative of the difference in computation power between these two modes. The computation time without the introduced delay doesn't favor multi-threading because the time it takes to start these threads is equivalent to the time it takes for the single thread to complete a single calculation.
+
+The reason for this is that all the threads in the multi-threaded computation sleeps simultaneously, while the single-threaded accumulates this sleep-time.
+
+\subsection{\textbf{Results}}
+
+\paragraph{\textbf{Sample Table:}}
+
+\begin{table}
+\centering
+
+\begin{tabular}{l l}
+Server Type & Time Taken average (ms)\\
+
+Single-Threaded & 50.2\\
+Multi-threaded& 51.7\\
+
+\end{tabular}
+
+\end{table}
+\begin{table}
+\centering
+
+\begin{tabular}{l l}
+Server Type & Time Taken  with 100ms delay for each arithmethic operation (ms)\\
+
+Single-Threaded & 1153\\
+Multi-threaded& 154\\
+
+\end{tabular}
+
+\end{table}
+\subsection{\textbf{Observations}}
+
+We made two different test scenarios; one with 100ms delay between the operations, and one without the delay. For the scenario without delay, we observed no advantage for the multi-threaded server. In fact, we observed a slightly slower in runtime. However, for the scenario with delay, we observed a great improvement in runtime. The difference in runtime approximately equates to the amount of threads.
+
+The reason for this is that all the threads in the multi-threaded computation sleeps simultaneously, while the single-threaded accumulates this sleep-time.
+
+This result is a lot more indicative of the difference in computation power between these two modes. The computation time without the introduced delay doesn't favor multi-threading because the time it takes to start these threads is equivalent to the time it takes for the single thread to complete a single calculation.
+
+\section{\textbf{Individual Contributions}}
+
+\begin{itemize}
+    \item Marcus worked on the multi and single thread server, and worked on the report, and assisted with the testing.
+    \item Petter worked on the multi and single thread server, the client side of the application, the testing of the application, and assisted with the report.
+    \item Mathias worked on the client-handler, establishing communication between the server and the client as well as writing the code for the computation. He also wrote the testing-section for the report as well as assisting with the rest.
+\end{itemize}
+\end{document}
